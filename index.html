@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orbe - Disciplina Digital</title>
+  <meta name="description" content="Retome o controle do seu tempo. O Orbe te ajuda a criar rotinas de foco, bloquear distrações e construir hábitos digitais saudáveis." />
+  <meta property="og:title" content="Orbe - Disciplina Digital" />
+  <meta property="og:description" content="Retome o controle do seu tempo. Bloqueie apps, organize tarefas e conquiste seus objetivos com gamificação." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="assets/img/logo-com-fundo.PNG" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ============================================
+       NAVIGATION
+       ============================================ -->
+  <nav class="nav" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/img/logo-e-nome.png" alt="Orbe" class="nav-logo-img" />
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link-active">Início</a>
+        <a href="como-funciona.html">Como Funciona</a>
+        <a href="para-quem.html">Para Quem</a>
+
+      </div>
+      <a href="https://forms.gle/nJxLzLg5nUwpNcLZA" target="_blank" class="nav-cta">Baixe Já</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       HERO
+       ============================================ -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-content hero-split">
+        <div class="hero-text">
+          <div class="hero-badge fade-up">
+            <span class="badge-dot"></span>
+            Retome o controle da sua atenção
+          </div>
+          <h1 class="hero-title fade-up stagger-1">
+            Bloqueie o caos.<br/><span class="highlight">Crie o hábito.</span>
+          </h1>
+          <p class="hero-subtitle fade-up stagger-2">
+            O Orbe não é apenas um bloqueador. É o seu mentor digital para construir rotinas inquebráveis e focar no que realmente importa.
+          </p>
+          <div class="hero-store-buttons fade-up stagger-3">
+            <a href="https://forms.gle/nJxLzLg5nUwpNcLZA" target="_blank" class="store-btn store-btn--apple">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="store-btn-icon"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <div>
+                <span class="store-btn-label">Download na</span>
+                <span class="store-btn-name">App Store</span>
+              </div>
+            </a>
+            <a href="https://forms.gle/nJxLzLg5nUwpNcLZA" target="_blank" class="store-btn store-btn--google">
+              <svg viewBox="0 0 24 24" class="store-btn-icon" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 010 1.729l-2.244 1.298L15.78 13.1l1.918-1.793zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z"/></svg>
+              <div>
+                <span class="store-btn-label">Disponível no</span>
+                <span class="store-btn-name">Google Play</span>
+              </div>
+            </a>
+          </div>
+          <div class="hero-social-proof fade-up stagger-4">
+            <div class="hero-avatars">
+              <img src="https://i.pravatar.cc/100?u=orbe1" alt="" class="hero-avatar-img" />
+              <img src="https://i.pravatar.cc/100?u=orbe2" alt="" class="hero-avatar-img" />
+              <img src="https://i.pravatar.cc/100?u=orbe3" alt="" class="hero-avatar-img" />
+            </div>
+            <span class="hero-social-text">+50.000 pessoas focadas hoje</span>
+          </div>
+        </div>
+        <div class="hero-phone-area fade-up stagger-5">
+          <div class="hero-phone-glow"></div>
+          <div class="hero-device-img">
+            <img src="assets/img/tela-bloqueado.png" alt="Tela de bloqueio do Orbe" class="hero-phone-img" />
+          </div>
+          <div class="hero-float-card hero-float-card--right">
+            <div class="float-card-icon float-card-icon--green">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <div>
+              <span class="float-card-label">Hábito completo!</span>
+              <span class="float-card-value">+500 XP</span>
+            </div>
+          </div>
+          <div class="hero-float-card hero-float-card--left">
+            <div class="float-card-icon float-card-icon--red">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+            </div>
+            <div>
+              <span class="float-card-label">Instagram</span>
+              <span class="float-card-value">Bloqueado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PROBLEM STATEMENT (Scroll Text)
+       ============================================ -->
+  <section class="scroll-text-section" id="como-funciona">
+    <div class="scroll-text-sticky">
+      <p class="scroll-text">
+        <span class="scroll-word">Enquanto</span>
+        <span class="scroll-word">você</span>
+        <span class="scroll-word">desliza</span>
+        <span class="scroll-word">por</span>
+        <span class="scroll-word">dezenas</span>
+        <span class="scroll-word">de</span>
+        <span class="scroll-word scroll-word--strike">vídeos</span>
+        <span class="scroll-word scroll-word--strike">curtos,</span>
+        <span class="scroll-word">seu</span>
+        <span class="scroll-word scroll-word--num">foco</span>
+        <span class="scroll-word">vai</span>
+        <span class="scroll-word">embora.</span>
+        <span class="scroll-word">O</span>
+        <span class="scroll-word">cérebro</span>
+        <span class="scroll-word">se</span>
+        <span class="scroll-word">acostuma</span>
+        <span class="scroll-word">a</span>
+        <span class="scroll-word">nunca</span>
+        <span class="scroll-word">se</span>
+        <span class="scroll-word">concentrar</span>
+        <span class="scroll-word">em</span>
+        <span class="scroll-word">nada</span>
+        <span class="scroll-word">de</span>
+        <span class="scroll-word">verdade,</span>
+        <span class="scroll-word">sempre</span>
+        <span class="scroll-word">em</span>
+        <span class="scroll-word">busca</span>
+        <span class="scroll-word">de</span>
+        <span class="scroll-word">mais</span>
+        <span class="scroll-word scroll-word--strike">dopamina</span>
+        <span class="scroll-word scroll-word--strike">barata.</span>
+        <span class="scroll-word scroll-word--bold">Saia</span>
+        <span class="scroll-word scroll-word--bold">desse</span>
+        <span class="scroll-word scroll-word--bold">ciclo</span>
+        <span class="scroll-word">com</span>
+        <span class="scroll-word">o</span>
+        <span class="scroll-word scroll-word--orbe">Orbe!</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       IMPACT — disruptive data presentation
+       ============================================ -->
+  <section class="impact" id="impacto">
+    <div class="container">
+
+      <!-- Hero Stat -->
+      <div class="impact-hero fade-up">
+        <div class="impact-hero-glow"></div>
+        <div class="impact-hero-inner">
+          <div class="impact-hero-number" data-target="2" data-prefix="+" data-suffix="h">+0h</div>
+          <div class="impact-hero-text">
+            <span class="impact-hero-highlight">do seu dia devolvidas</span>
+            para o que importa.
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Grid — asymmetric 3+2 -->
+      <div class="impact-grid">
+        <div class="impact-card impact-card--green fade-up stagger-1">
+          <div class="impact-card-number" data-target="84" data-suffix="%">0%</div>
+          <div class="impact-card-text">dos usuários atingiram uma meta que vinham adiando</div>
+        </div>
+        <div class="impact-card impact-card--orange fade-up stagger-2">
+          <div class="impact-card-number" data-target="3.1" data-suffix="x" data-decimal="true">0x</div>
+          <div class="impact-card-text">mais consistência em hábitos diários</div>
+        </div>
+        <div class="impact-card impact-card--blue fade-up stagger-3">
+          <div class="impact-card-number" data-target="91" data-suffix="%">0%</div>
+          <div class="impact-card-text">sentem que retomaram o controle do tempo</div>
+        </div>
+        <div class="impact-card impact-card--cyan fade-up stagger-1">
+          <div class="impact-card-number" data-target="78" data-suffix="%">0%</div>
+          <div class="impact-card-text">reduziram o tempo de tela em apenas 1 semana</div>
+        </div>
+        <div class="impact-card impact-card--purple fade-up stagger-2">
+          <div class="impact-card-number" data-target="67" data-suffix="%">0%</div>
+          <div class="impact-card-text">leem ou estudam mais desde que começaram</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Infinite Marquee -->
+    <div class="impact-marquee" aria-hidden="true">
+      <div class="impact-marquee-track">
+        <span class="marquee-item"><strong>+2h</strong> devolvidas por dia</span>
+        <span class="marquee-sep"></span>
+        <span class="marquee-item"><strong>84%</strong> atingiram suas metas</span>
+        <span class="marquee-sep"></span>
+        <span class="marquee-item"><strong>3.1x</strong> mais consistência</span>
+        <span class="marquee-sep"></span>
+        <span class="marquee-item"><strong>91%</strong> retomaram o controle</span>
+        <span class="marquee-sep"></span>
+        <span class="marquee-item"><strong>78%</strong> menos tempo de tela</span>
+        <span class="marquee-sep"></span>
+        <span class="marquee-item"><strong>67%</strong> leem ou estudam mais</span>
+        <span class="marquee-sep"></span>
+        <span class="marquee-item"><strong>+2h</strong> devolvidas por dia</span>
+        <span class="marquee-sep"></span>
+        <span class="marquee-item"><strong>84%</strong> atingiram suas metas</span>
+        <span class="marquee-sep"></span>
+        <span class="marquee-item"><strong>3.1x</strong> mais consistência</span>
+        <span class="marquee-sep"></span>
+        <span class="marquee-item"><strong>91%</strong> retomaram o controle</span>
+        <span class="marquee-sep"></span>
+        <span class="marquee-item"><strong>78%</strong> menos tempo de tela</span>
+        <span class="marquee-sep"></span>
+        <span class="marquee-item"><strong>67%</strong> leem ou estudam mais</span>
+        <span class="marquee-sep"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       BENEFITS — 3 outcome-oriented cards
+       ============================================ -->
+  <section class="benefits" id="beneficios">
+    <div class="container">
+      <div class="benefits-header fade-up">
+        <div class="section-label" style="color: var(--primary-cyan);">O que você ganha</div>
+        <h2 class="section-title">Disciplina sem esforço.<br/><span class="gradient-text">Resultados que ficam.</span></h2>
+        <p class="section-subtitle" style="margin: 1rem auto 0;">Três mudanças que você sente já na primeira semana — e que continuam depois.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card fade-up stagger-1">
+          <div class="benefit-card-glow benefit-glow-blue"></div>
+          <div class="benefit-icon-wrap">
+            <img src="assets/svg/pomodoro.svg" alt="" class="benefit-icon-svg" />
+          </div>
+          <h3 class="benefit-title">+2h por dia de volta</h3>
+          <p class="benefit-desc">Recupere o tempo que some no scroll infinito e use para o que realmente importa pra você.</p>
+        </div>
+        <div class="benefit-card fade-up stagger-2">
+          <div class="benefit-card-glow benefit-glow-orange"></div>
+          <div class="benefit-icon-wrap">
+            <img src="assets/svg/alvo.svg" alt="" class="benefit-icon-svg" />
+          </div>
+          <h3 class="benefit-title">Foco que dura</h3>
+          <p class="benefit-desc">Bloqueio inteligente e gamificação criam hábitos que se sustentam — não só na primeira semana.</p>
+        </div>
+        <div class="benefit-card fade-up stagger-3">
+          <div class="benefit-card-glow benefit-glow-purple"></div>
+          <div class="benefit-icon-wrap">
+            <img src="assets/svg/lua.svg" alt="" class="benefit-icon-svg" />
+          </div>
+          <h3 class="benefit-title">Mente mais leve</h3>
+          <p class="benefit-desc">Menos ansiedade digital, mais clareza para estudar, trabalhar e descansar de verdade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FEATURE: FOCO (App Blocking)
+       ============================================ -->
+  <section class="feature-section" id="funcionalidades">
+    <div class="container">
+      <div class="feature-grid">
+        <div class="feature-content fade-up">
+          <div class="feature-icon blue">
+            <img src="assets/svg/celular-block.svg" alt="" class="feature-icon-svg" />
+          </div>
+          <div class="section-label" style="color: var(--primary-blue);">Foco</div>
+          <h2 class="section-title">Bloqueie o que te distrai.<br/>Libere o que importa.</h2>
+          <p class="section-subtitle">Crie rotinas de foco personalizadas. Escolha os apps que quer bloquear, defina horários e deixe o Orbe cuidar do resto. Com presets de Pomodoro e modos de concentração profunda.</p>
+          <div class="feature-pills">
+            <span class="feature-pill">Bloqueio por horário</span>
+            <span class="feature-pill">Presets Pomodoro</span>
+            <span class="feature-pill">Lista de apps</span>
+            <span class="feature-pill">Modo Deep Focus</span>
+          </div>
+        </div>
+        <div class="feature-mockup glow-blue fade-up stagger-2">
+          <img src="assets/img/tela-bloqueado.png" alt="Tela de bloqueio do app Orbe" class="phone-mockup-img" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FEATURE: TAREFAS (Tasks)
+       ============================================ -->
+  <section class="feature-section">
+    <div class="container">
+      <div class="feature-grid reversed">
+        <div class="feature-content fade-up">
+          <div class="feature-icon green">
+            <img src="assets/svg/ok.svg" alt="" class="feature-icon-svg" />
+          </div>
+          <div class="section-label" style="color: var(--success-green);">Tarefas</div>
+          <h2 class="section-title">Organize seu dia.<br/>Conquiste suas metas.</h2>
+          <p class="section-subtitle">Gerencie suas tarefas diárias com prioridades, datas e rastreamento de tempo. Visualize tudo no calendário e nunca perca um prazo.</p>
+          <div class="feature-pills">
+            <span class="feature-pill">Prioridades</span>
+            <span class="feature-pill">Calendário</span>
+            <span class="feature-pill">Time tracking</span>
+            <span class="feature-pill">Metas diárias</span>
+          </div>
+        </div>
+        <div class="feature-mockup glow-green fade-up stagger-2">
+          <img src="assets/img/tarefas.png" alt="Tela de tarefas do app Orbe" class="phone-mockup-img" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FEATURE: TRILHAS (Trails)
+       ============================================ -->
+  <section class="feature-section">
+    <div class="container">
+      <div class="feature-grid">
+        <div class="feature-content fade-up">
+          <div class="feature-icon purple">
+            <img src="assets/svg/alvo.svg" alt="" class="feature-icon-svg" />
+          </div>
+          <div class="section-label" style="color: var(--purple);">Trilhas</div>
+          <h2 class="section-title">Transforme projetos<br/>em jornadas.</h2>
+          <p class="section-subtitle">Divida grandes objetivos em marcos e subtarefas. Acompanhe seu progresso visual e mantenha-se no caminho certo para realizar seus sonhos.</p>
+          <div class="feature-pills">
+            <span class="feature-pill">Marcos</span>
+            <span class="feature-pill">Subtarefas</span>
+            <span class="feature-pill">Progresso visual</span>
+            <span class="feature-pill">Projetos organizados</span>
+          </div>
+        </div>
+        <div class="feature-mockup glow-purple fade-up stagger-2">
+          <img src="assets/img/trilha.png" alt="Tela de trilhas do app Orbe" class="phone-mockup-img" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FEATURE: POMODORO
+       ============================================ -->
+  <section class="feature-section">
+    <div class="container">
+      <div class="feature-grid reversed">
+        <div class="feature-content fade-up">
+          <div class="feature-icon red">
+            <img src="assets/svg/pomodoro.svg" alt="" class="feature-icon-svg" />
+          </div>
+          <div class="section-label" style="color: var(--red);">Pomodoro</div>
+          <h2 class="section-title">25 minutos de foco.<br/>Resultados que duram.</h2>
+          <p class="section-subtitle">O timer Pomodoro integrado bloqueia automaticamente apps durante suas sessões. Intercale períodos de foco com pausas estratégicas e ganhe XP por cada sessão.</p>
+          <div class="feature-pills">
+            <span class="feature-pill">Timer customizável</span>
+            <span class="feature-pill">Bloqueio automático</span>
+            <span class="feature-pill">Pausas inteligentes</span>
+            <span class="feature-pill">XP por sessão</span>
+          </div>
+        </div>
+        <div class="feature-mockup glow-red fade-up stagger-2">
+          <img src="assets/img/pomodoro.png" alt="Tela de pomodoro do app Orbe" class="phone-mockup-img" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FEATURE: MODO SONO (Sleep)
+       ============================================ -->
+  <section class="feature-section">
+    <div class="container">
+      <div class="feature-grid">
+        <div class="feature-content fade-up">
+          <div class="feature-icon indigo">
+            <img src="assets/svg/lua.svg" alt="" class="feature-icon-svg" />
+          </div>
+          <div class="section-label" style="color: var(--indigo);">Modo Sono</div>
+          <h2 class="section-title">Durma melhor.<br/>Acorde renovado.</h2>
+          <p class="section-subtitle">Defina horários de dormir e acordar. O Orbe bloqueia apps automaticamente para que você tenha uma noite de descanso real, sem distrações digitais.</p>
+          <div class="feature-pills">
+            <span class="feature-pill">Bloqueio noturno</span>
+            <span class="feature-pill">Hora de dormir</span>
+            <span class="feature-pill">Hora de acordar</span>
+            <span class="feature-pill">Log de sono</span>
+          </div>
+        </div>
+        <div class="feature-mockup glow-indigo fade-up stagger-2">
+          <img src="assets/img/dormir.png" alt="Tela de modo sono do app Orbe" class="phone-mockup-img" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       GAMIFICATION
+       ============================================ -->
+  <section class="gamification" id="gamificacao">
+    <div class="container">
+      <div class="gamification-header fade-up">
+        <div class="section-label" style="color: var(--accent-orange);">
+          <span>🔥</span> Gamificação
+        </div>
+        <h2 class="section-title">Disciplina que vicia.<br/><span class="gradient-text-fire">No bom sentido.</span></h2>
+        <p class="section-subtitle" style="margin: 1rem auto 0;">Ganhe XP completando tarefas, mantendo foco e batendo metas. Suba de nível e desbloqueie conquistas.</p>
+      </div>
+      <div class="gamification-grid">
+        <!-- Level Card -->
+        <div class="gamification-card fade-up">
+          <div class="gamification-card-icon">⭐</div>
+          <div class="gamification-card-title">Níveis & XP</div>
+          <div class="gamification-card-desc">Cada ação te dá XP. Suba de nível de Iniciante até Imortal.</div>
+          <div class="level-badge">Nível 7 — Dedicado</div>
+          <div class="xp-bar">
+            <div class="xp-fill" id="xpFill"></div>
+          </div>
+          <div class="xp-label">1.240 / 1.900 XP</div>
+        </div>
+        <!-- Streak Card -->
+        <div class="gamification-card fade-up stagger-1">
+          <div class="gamification-card-icon">🔥</div>
+          <div class="gamification-card-title">Streaks</div>
+          <div class="gamification-card-desc">Mantenha sua sequência diária para multiplicar seus ganhos de XP.</div>
+          <div class="streak-display">
+            <span class="streak-fire">🔥</span>
+            <span class="streak-count">15</span>
+          </div>
+          <div style="font-size: 0.875rem; color: var(--text-secondary);">dias consecutivos</div>
+          <div style="margin-top: 0.75rem; font-size: 0.8125rem; color: var(--accent-orange);">Multiplicador: 1.5x XP</div>
+        </div>
+        <!-- Badges Card -->
+        <div class="gamification-card fade-up stagger-2">
+          <div class="gamification-card-icon">🏆</div>
+          <div class="gamification-card-title">Conquistas</div>
+          <div class="gamification-card-desc">Dezenas de badges para desbloquear completando desafios especiais.</div>
+          <div class="badges-grid">
+            <div class="badge-item earned">🎯</div>
+            <div class="badge-item earned">📚</div>
+            <div class="badge-item earned">⚡</div>
+            <div class="badge-item">🌟</div>
+            <div class="badge-item">💎</div>
+            <div class="badge-item">👑</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       TESTIMONIALS — Prova social
+       ============================================ -->
+  <section class="testimonials" id="depoimentos">
+    <div class="container">
+      <div class="testimonials-header fade-up">
+        <div class="section-label" style="color: var(--success-green);">Quem usa, recomenda</div>
+        <h2 class="section-title">Histórias reais de quem<br/><span class="gradient-text">retomou o controle</span>.</h2>
+      </div>
+    </div>
+
+    <div class="testimonials-marquee fade-up">
+      <div class="marquee-row">
+        <div class="marquee-track">
+          <article class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Passei no vestibular depois de 2 anos travado. Bloquear o Insta nas horas de estudo foi o que me salvou."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #f97316, #fdb347);">L</div>
+              <div>
+                <div class="testimonial-name">Letícia M.</div>
+                <div class="testimonial-role">Vestibulanda • Recife</div>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"O streak me viciou no bom sentido. Faz 4 meses que estudo todos os dias para o concurso. Nunca consegui isso antes."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #007AFF, #00C6FF);">R</div>
+              <div>
+                <div class="testimonial-name">Rafael C.</div>
+                <div class="testimonial-role">Concurseiro • Brasília</div>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Trabalho, faculdade e TCC. As trilhas do Orbe me deram a clareza que eu não tinha em nenhum app de tarefa."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #A855F7, #c084fc);">M</div>
+              <div>
+                <div class="testimonial-name">Marina S.</div>
+                <div class="testimonial-role">Universitária • São Paulo</div>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Apaguei 6 apps de produtividade depois de instalar o Orbe. Faz tudo o que eu precisava num lugar só."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #06b6d4, #67e8f9);">B</div>
+              <div>
+                <div class="testimonial-name">Bruno T.</div>
+                <div class="testimonial-role">Designer • Curitiba</div>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Voltei a ler. Bloqueei TikTok das 21h em diante e em duas semanas terminei dois livros que estavam parados."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #ec4899, #f9a8d4);">C</div>
+              <div>
+                <div class="testimonial-name">Camila R.</div>
+                <div class="testimonial-role">Professora • Salvador</div>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Sou TDAH e nada nunca grudou. O Orbe foi o primeiro app que entrou na minha rotina e ficou."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #f59e0b, #fcd34d);">J</div>
+              <div>
+                <div class="testimonial-name">João V.</div>
+                <div class="testimonial-role">Estudante • Belo Horizonte</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="marquee-row">
+        <div class="marquee-track marquee-track-reverse">
+          <article class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Comecei pra produzir mais no trabalho e acabei dormindo melhor também. O modo sono é simples e funciona."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #34d399, #6ee7b7);">D</div>
+              <div>
+                <div class="testimonial-name">Diego P.</div>
+                <div class="testimonial-role">Dev Jr. • Florianópolis</div>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Subi de cargo em 6 meses. Não foi mágica — foi parar de abrir Twitter no meio do código."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #6366f1, #a5b4fc);">F</div>
+              <div>
+                <div class="testimonial-name">Felipe A.</div>
+                <div class="testimonial-role">Eng. de Software • Porto Alegre</div>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"A trilha do TCC me salvou. Dividir em marcos mostrou que faltava muito menos do que eu achava."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #14b8a6, #5eead4);">A</div>
+              <div>
+                <div class="testimonial-name">Ana P.</div>
+                <div class="testimonial-role">Universitária • Fortaleza</div>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Treino, dieta e estudo. Os três como rotina fixa. Bater o streak virou o melhor jogo da minha semana."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #ef4444, #fca5a5);">G</div>
+              <div>
+                <div class="testimonial-name">Gabriel S.</div>
+                <div class="testimonial-role">Personal • Goiânia</div>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Era refém do celular antes de dormir. Hoje o telefone trava sozinho às 23h e eu agradeço todo dia."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #8b5cf6, #c4b5fd);">N</div>
+              <div>
+                <div class="testimonial-name">Natália F.</div>
+                <div class="testimonial-role">Médica residente • Rio de Janeiro</div>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Bati 100 dias de streak ontem. Nunca consegui manter nada por tanto tempo na vida."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #0ea5e9, #7dd3fc);">P</div>
+              <div>
+                <div class="testimonial-name">Pedro H.</div>
+                <div class="testimonial-role">Concurseiro • Manaus</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CTA FINAL
+       ============================================ -->
+  <section class="cta-final" id="baixar">
+    <div class="container">
+      <div class="cta-final-content">
+        <h2 class="cta-final-title fade-up">
+          Comece sua jornada de<br/><span class="gradient-text">foco hoje</span>.
+        </h2>
+        <p class="cta-final-subtitle fade-up stagger-1">
+          Baixe o Orbe gratuitamente e transforme sua relação com a tecnologia.
+        </p>
+        <a href="https://forms.gle/nJxLzLg5nUwpNcLZA" target="_blank" class="btn-cta-glow fade-up stagger-2">
+          Baixar Orbe Grátis
+        </a>
+        <div class="cta-platforms fade-up stagger-3">Disponível para iOS e Android</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">Orbe</div>
+      <div class="footer-links">
+        <a href="index.html">Início</a>
+        <a href="como-funciona.html">Como Funciona</a>
+        <a href="para-quem.html">Para Quem</a>
+
+      </div>
+      <div class="footer-copy">&copy; 2026 Orbe. Todos os direitos reservados.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
