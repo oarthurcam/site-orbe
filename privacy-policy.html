@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidade - Orbe</title>
+  <meta name="description" content="Política de privacidade do Orbe. Entenda como coletamos, usamos e protegemos seus dados." />
+  <link rel="icon" type="image/png" href="assets/img/logo-com-fundo.PNG" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .legal-wrap { max-width: 820px; margin: 0 auto; padding: 140px 1.5rem 80px; color: var(--text-primary); }
+    .legal-wrap h1 { font-size: clamp(2rem, 5vw, 3rem); background: var(--gradient-primary); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
+    .legal-wrap .legal-date { color: var(--text-muted); font-size: 14px; margin-bottom: 32px; }
+    .legal-wrap h2 { color: var(--primary-cyan); margin-top: 40px; font-size: 1.5rem; }
+    .legal-wrap p, .legal-wrap li { color: var(--text-secondary); line-height: 1.7; }
+    .legal-wrap ul { padding-left: 24px; margin: 12px 0; }
+    .legal-wrap li { margin: 6px 0; }
+    .legal-wrap a { color: var(--primary-cyan); }
+    .legal-wrap strong { color: var(--text-primary); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/img/logo-e-nome.png" alt="Orbe" class="nav-logo-img" />
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Início</a>
+        <a href="como-funciona.html">Como Funciona</a>
+        <a href="para-quem.html">Para Quem</a>
+      </div>
+      <a href="https://forms.gle/nJxLzLg5nUwpNcLZA" target="_blank" class="nav-cta">Baixe Já</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="legal-wrap">
+    <h1>Política de Privacidade</h1>
+    <p class="legal-date">Última atualização: 22 de abril de 2026</p>
+
+    <p>Esta Política de Privacidade descreve como o aplicativo <strong>Orbe</strong> ("nós", "nosso" ou "Orbe") coleta, usa e protege suas informações quando você utiliza nosso aplicativo móvel.</p>
+
+    <h2>1. Informações que coletamos</h2>
+    <p>Para oferecer os serviços do Orbe, coletamos os seguintes tipos de dados:</p>
+    <ul>
+      <li><strong>Informações de conta:</strong> nome, email, foto de perfil (fornecidos via Firebase Authentication).</li>
+      <li><strong>Dados de uso do aplicativo:</strong> tarefas criadas, rotinas de foco, metas, sessões de Pomodoro, estatísticas de sono e registros de streak.</li>
+      <li><strong>Tempo de tela:</strong> o Orbe acessa estatísticas de uso do seu dispositivo (via PACKAGE_USAGE_STATS) para exibir relatórios personalizados. Esses dados são processados localmente e não saem do seu dispositivo.</li>
+      <li><strong>Preferências:</strong> tema, cor de destaque, dias de descanso e configurações do app.</li>
+    </ul>
+
+    <h2>2. Como usamos suas informações</h2>
+    <ul>
+      <li>Fornecer, manter e melhorar os recursos do Orbe.</li>
+      <li>Sincronizar seu progresso entre dispositivos via Firebase.</li>
+      <li>Enviar notificações locais sobre tarefas, rotinas e lembretes de streak.</li>
+      <li>Gerar relatórios personalizados de produtividade.</li>
+      <li>Processar assinaturas Orbe Max via Google Play Billing.</li>
+    </ul>
+
+    <h2>3. Permissões solicitadas</h2>
+    <ul>
+      <li><strong>Acesso a estatísticas de uso (PACKAGE_USAGE_STATS):</strong> necessário para exibir tempo de tela e gerenciar bloqueios de apps.</li>
+      <li><strong>Sobreposição (SYSTEM_ALERT_WINDOW):</strong> usada para exibir tela de bloqueio quando apps restritos são abertos durante rotinas de foco.</li>
+      <li><strong>Notificações (POST_NOTIFICATIONS):</strong> envio de lembretes e alertas de streak.</li>
+      <li><strong>Internet (INTERNET):</strong> sincronização com Firebase e processamento de assinaturas.</li>
+      <li><strong>Consulta de pacotes (QUERY_ALL_PACKAGES):</strong> listar apps instalados para seleção nas rotinas de bloqueio.</li>
+    </ul>
+
+    <h2>4. Compartilhamento de dados</h2>
+    <p>O Orbe <strong>não vende, aluga ou compartilha</strong> seus dados pessoais com terceiros para fins de marketing. Compartilhamos dados apenas com:</p>
+    <ul>
+      <li><strong>Google Firebase</strong> (autenticação, armazenamento, sincronização).</li>
+      <li><strong>Google Play Billing / Superwall</strong> (processamento de assinaturas).</li>
+    </ul>
+
+    <h2>5. Armazenamento local</h2>
+    <p>A maioria dos seus dados (tarefas, metas, rotinas, tempo de tela) é armazenada <strong>localmente no seu dispositivo</strong> usando AsyncStorage. Eles não são transmitidos para servidores externos, exceto quando necessário para sincronização opcional.</p>
+
+    <h2>6. Retenção de dados</h2>
+    <p>Seus dados ficam armazenados enquanto sua conta estiver ativa. Ao excluir sua conta, todos os dados associados são removidos dos nossos servidores em até 30 dias.</p>
+
+    <h2>7. Segurança</h2>
+    <p>Usamos criptografia em trânsito (HTTPS/TLS) e em repouso (Firebase) para proteger seus dados. Ainda assim, nenhum sistema é 100% seguro, e não podemos garantir segurança absoluta.</p>
+
+    <h2>8. Crianças</h2>
+    <p>O Orbe não é destinado a crianças menores de 13 anos. Não coletamos intencionalmente informações de menores de 13 anos.</p>
+
+    <h2>9. Seus direitos</h2>
+    <p>Você tem o direito de:</p>
+    <ul>
+      <li>Acessar seus dados pessoais.</li>
+      <li>Solicitar correção ou exclusão.</li>
+      <li>Exportar seus dados.</li>
+      <li>Revogar permissões a qualquer momento nas configurações do Android.</li>
+      <li>Excluir sua conta diretamente no app ou solicitando via email (veja <a href="account-deletion.html">Exclusão de Conta</a>).</li>
+    </ul>
+
+    <h2>10. Alterações nesta política</h2>
+    <p>Podemos atualizar esta Política de Privacidade periodicamente. Notificaremos você sobre alterações significativas via notificação dentro do app ou email.</p>
+
+    <h2>11. Contato</h2>
+    <p>Dúvidas sobre privacidade? Entre em contato:</p>
+    <ul>
+      <li>Email: <a href="mailto:oarthurcam@gmail.com">oarthurcam@gmail.com</a></li>
+    </ul>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">Orbe</div>
+      <div class="footer-links">
+        <a href="index.html">Início</a>
+        <a href="como-funciona.html">Como Funciona</a>
+        <a href="para-quem.html">Para Quem</a>
+        <a href="privacy-policy.html">Privacidade</a>
+        <a href="account-deletion.html">Exclusão de Conta</a>
+      </div>
+      <div class="footer-copy">&copy; 2026 Orbe. Todos os direitos reservados.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
