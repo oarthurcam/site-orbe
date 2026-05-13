@@ -28,7 +28,7 @@
         <a href="para-quem.html">Para Quem</a>
 
       </div>
-      <a href="https://forms.gle/nJxLzLg5nUwpNcLZA" target="_blank" class="nav-cta">Baixe Já</a>
+      <a href="https://chat.whatsapp.com/L6nYBeawqcr3n5yZ4AAskz" target="_blank" class="nav-cta">Comunidade</a>
       <button class="nav-hamburger" id="navHamburger" aria-label="Abrir menu">
         <span></span>
         <span></span>
@@ -41,6 +41,7 @@
        HERO
        ============================================ -->
   <section class="hero" id="hero">
+    <canvas id="heroParticles" class="hero-particles-canvas" aria-hidden="true"></canvas>
     <div class="container">
       <div class="hero-content hero-split">
         <div class="hero-text">
@@ -54,20 +55,13 @@
           <p class="hero-subtitle fade-up stagger-2">
             O Orbe não é apenas um bloqueador. É o seu mentor digital para construir rotinas inquebráveis e focar no que realmente importa.
           </p>
-          <div class="hero-store-buttons fade-up stagger-3">
-            <a href="https://forms.gle/nJxLzLg5nUwpNcLZA" target="_blank" class="store-btn store-btn--apple">
-              <svg viewBox="0 0 24 24" fill="currentColor" class="store-btn-icon"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-              <div>
-                <span class="store-btn-label">Download na</span>
-                <span class="store-btn-name">App Store</span>
-              </div>
-            </a>
-            <a href="https://forms.gle/nJxLzLg5nUwpNcLZA" target="_blank" class="store-btn store-btn--google">
-              <svg viewBox="0 0 24 24" class="store-btn-icon" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 010 1.729l-2.244 1.298L15.78 13.1l1.918-1.793zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z"/></svg>
-              <div>
-                <span class="store-btn-label">Disponível no</span>
-                <span class="store-btn-name">Google Play</span>
-              </div>
+          <div class="hero-cta-row fade-up stagger-3">
+            <a href="https://chat.whatsapp.com/L6nYBeawqcr3n5yZ4AAskz" target="_blank" class="btn-community">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="btn-community-icon">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              <span>Entrar na Comunidade</span>
+              <span class="btn-community-arrow">→</span>
             </a>
           </div>
           <div class="hero-social-proof fade-up stagger-4">
@@ -76,7 +70,7 @@
               <img src="https://i.pravatar.cc/100?u=orbe2" alt="" class="hero-avatar-img" />
               <img src="https://i.pravatar.cc/100?u=orbe3" alt="" class="hero-avatar-img" />
             </div>
-            <span class="hero-social-text">+50.000 pessoas focadas hoje</span>
+            <span class="hero-social-text">+500 pessoas focando juntas</span>
           </div>
         </div>
         <div class="hero-phone-area fade-up stagger-5">
@@ -90,7 +84,7 @@
             </div>
             <div>
               <span class="float-card-label">Hábito completo!</span>
-              <span class="float-card-value">+500 XP</span>
+              <span class="float-card-value">Novo foguinho 🔥</span>
             </div>
           </div>
           <div class="hero-float-card hero-float-card--left">
@@ -361,12 +355,12 @@
           </div>
           <div class="section-label" style="color: var(--red);">Pomodoro</div>
           <h2 class="section-title">25 minutos de foco.<br/>Resultados que duram.</h2>
-          <p class="section-subtitle">O timer Pomodoro integrado bloqueia automaticamente apps durante suas sessões. Intercale períodos de foco com pausas estratégicas e ganhe XP por cada sessão.</p>
+          <p class="section-subtitle">O timer Pomodoro integrado bloqueia automaticamente apps durante suas sessões. Intercale períodos de foco com pausas estratégicas e desbloqueie um foguinho a cada sessão concluída.</p>
           <div class="feature-pills">
             <span class="feature-pill">Timer customizável</span>
             <span class="feature-pill">Bloqueio automático</span>
             <span class="feature-pill">Pausas inteligentes</span>
-            <span class="feature-pill">XP por sessão</span>
+            <span class="feature-pill">Foguinhos por sessão</span>
           </div>
         </div>
         <div class="feature-mockup glow-red fade-up stagger-2">
@@ -414,31 +408,31 @@
           <span>🔥</span> Gamificação
         </div>
         <h2 class="section-title">Disciplina que vicia.<br/><span class="gradient-text-fire">No bom sentido.</span></h2>
-        <p class="section-subtitle" style="margin: 1rem auto 0;">Ganhe XP completando tarefas, mantendo foco e batendo metas. Suba de nível e desbloqueie conquistas.</p>
+        <p class="section-subtitle" style="margin: 1rem auto 0;">Desbloqueie um novo foguinho a cada tarefa, sessão de foco e meta batida. Suba de nível e colecione conquistas.</p>
       </div>
       <div class="gamification-grid">
         <!-- Level Card -->
         <div class="gamification-card fade-up">
           <div class="gamification-card-icon">⭐</div>
-          <div class="gamification-card-title">Níveis & XP</div>
-          <div class="gamification-card-desc">Cada ação te dá XP. Suba de nível de Iniciante até Imortal.</div>
+          <div class="gamification-card-title">Níveis & Foguinhos</div>
+          <div class="gamification-card-desc">Cada ação desbloqueia um foguinho. Suba de nível de Iniciante até Imortal.</div>
           <div class="level-badge">Nível 7 — Dedicado</div>
           <div class="xp-bar">
             <div class="xp-fill" id="xpFill"></div>
           </div>
-          <div class="xp-label">1.240 / 1.900 XP</div>
+          <div class="xp-label">124 / 190 foguinhos 🔥</div>
         </div>
         <!-- Streak Card -->
         <div class="gamification-card fade-up stagger-1">
           <div class="gamification-card-icon">🔥</div>
           <div class="gamification-card-title">Streaks</div>
-          <div class="gamification-card-desc">Mantenha sua sequência diária para multiplicar seus ganhos de XP.</div>
+          <div class="gamification-card-desc">Mantenha sua sequência diária para multiplicar os foguinhos que você desbloqueia.</div>
           <div class="streak-display">
             <span class="streak-fire">🔥</span>
             <span class="streak-count">15</span>
           </div>
           <div style="font-size: 0.875rem; color: var(--text-secondary);">dias consecutivos</div>
-          <div style="margin-top: 0.75rem; font-size: 0.8125rem; color: var(--accent-orange);">Multiplicador: 1.5x XP</div>
+          <div style="margin-top: 0.75rem; font-size: 0.8125rem; color: var(--accent-orange);">Multiplicador: 1.5x foguinhos</div>
         </div>
         <!-- Badges Card -->
         <div class="gamification-card fade-up stagger-2">
@@ -458,178 +452,23 @@
     </div>
   </section>
 
-  <!-- ============================================
-       TESTIMONIALS — Prova social
-       ============================================ -->
-  <section class="testimonials" id="depoimentos">
-    <div class="container">
-      <div class="testimonials-header fade-up">
-        <div class="section-label" style="color: var(--success-green);">Quem usa, recomenda</div>
-        <h2 class="section-title">Histórias reais de quem<br/><span class="gradient-text">retomou o controle</span>.</h2>
-      </div>
-    </div>
-
-    <div class="testimonials-marquee fade-up">
-      <div class="marquee-row">
-        <div class="marquee-track">
-          <article class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"Passei no vestibular depois de 2 anos travado. Bloquear o Insta nas horas de estudo foi o que me salvou."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #f97316, #fdb347);">L</div>
-              <div>
-                <div class="testimonial-name">Letícia M.</div>
-                <div class="testimonial-role">Vestibulanda • Recife</div>
-              </div>
-            </div>
-          </article>
-          <article class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"O streak me viciou no bom sentido. Faz 4 meses que estudo todos os dias para o concurso. Nunca consegui isso antes."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #007AFF, #00C6FF);">R</div>
-              <div>
-                <div class="testimonial-name">Rafael C.</div>
-                <div class="testimonial-role">Concurseiro • Brasília</div>
-              </div>
-            </div>
-          </article>
-          <article class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"Trabalho, faculdade e TCC. As trilhas do Orbe me deram a clareza que eu não tinha em nenhum app de tarefa."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #A855F7, #c084fc);">M</div>
-              <div>
-                <div class="testimonial-name">Marina S.</div>
-                <div class="testimonial-role">Universitária • São Paulo</div>
-              </div>
-            </div>
-          </article>
-          <article class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"Apaguei 6 apps de produtividade depois de instalar o Orbe. Faz tudo o que eu precisava num lugar só."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #06b6d4, #67e8f9);">B</div>
-              <div>
-                <div class="testimonial-name">Bruno T.</div>
-                <div class="testimonial-role">Designer • Curitiba</div>
-              </div>
-            </div>
-          </article>
-          <article class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"Voltei a ler. Bloqueei TikTok das 21h em diante e em duas semanas terminei dois livros que estavam parados."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #ec4899, #f9a8d4);">C</div>
-              <div>
-                <div class="testimonial-name">Camila R.</div>
-                <div class="testimonial-role">Professora • Salvador</div>
-              </div>
-            </div>
-          </article>
-          <article class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"Sou TDAH e nada nunca grudou. O Orbe foi o primeiro app que entrou na minha rotina e ficou."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #f59e0b, #fcd34d);">J</div>
-              <div>
-                <div class="testimonial-name">João V.</div>
-                <div class="testimonial-role">Estudante • Belo Horizonte</div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="marquee-row">
-        <div class="marquee-track marquee-track-reverse">
-          <article class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"Comecei pra produzir mais no trabalho e acabei dormindo melhor também. O modo sono é simples e funciona."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #34d399, #6ee7b7);">D</div>
-              <div>
-                <div class="testimonial-name">Diego P.</div>
-                <div class="testimonial-role">Dev Jr. • Florianópolis</div>
-              </div>
-            </div>
-          </article>
-          <article class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"Subi de cargo em 6 meses. Não foi mágica — foi parar de abrir Twitter no meio do código."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #6366f1, #a5b4fc);">F</div>
-              <div>
-                <div class="testimonial-name">Felipe A.</div>
-                <div class="testimonial-role">Eng. de Software • Porto Alegre</div>
-              </div>
-            </div>
-          </article>
-          <article class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"A trilha do TCC me salvou. Dividir em marcos mostrou que faltava muito menos do que eu achava."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #14b8a6, #5eead4);">A</div>
-              <div>
-                <div class="testimonial-name">Ana P.</div>
-                <div class="testimonial-role">Universitária • Fortaleza</div>
-              </div>
-            </div>
-          </article>
-          <article class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"Treino, dieta e estudo. Os três como rotina fixa. Bater o streak virou o melhor jogo da minha semana."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #ef4444, #fca5a5);">G</div>
-              <div>
-                <div class="testimonial-name">Gabriel S.</div>
-                <div class="testimonial-role">Personal • Goiânia</div>
-              </div>
-            </div>
-          </article>
-          <article class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"Era refém do celular antes de dormir. Hoje o telefone trava sozinho às 23h e eu agradeço todo dia."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #8b5cf6, #c4b5fd);">N</div>
-              <div>
-                <div class="testimonial-name">Natália F.</div>
-                <div class="testimonial-role">Médica residente • Rio de Janeiro</div>
-              </div>
-            </div>
-          </article>
-          <article class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"Bati 100 dias de streak ontem. Nunca consegui manter nada por tanto tempo na vida."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" style="background: linear-gradient(135deg, #0ea5e9, #7dd3fc);">P</div>
-              <div>
-                <div class="testimonial-name">Pedro H.</div>
-                <div class="testimonial-role">Concurseiro • Manaus</div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ============================================
        CTA FINAL
        ============================================ -->
-  <section class="cta-final" id="baixar">
+  <section class="cta-final" id="comunidade">
     <div class="container">
       <div class="cta-final-content">
         <h2 class="cta-final-title fade-up">
-          Comece sua jornada de<br/><span class="gradient-text">foco hoje</span>.
+          Você não precisa<br/><span class="gradient-text">fazer isso sozinho</span>.
         </h2>
         <p class="cta-final-subtitle fade-up stagger-1">
-          Baixe o Orbe gratuitamente e transforme sua relação com a tecnologia.
+          Entre na comunidade do Orbe. Pessoas reais, foco real, todos os dias. Compartilhe progresso, tire dúvidas e mantenha a constância.
         </p>
-        <a href="https://forms.gle/nJxLzLg5nUwpNcLZA" target="_blank" class="btn-cta-glow fade-up stagger-2">
-          Baixar Orbe Grátis
+        <a href="https://chat.whatsapp.com/L6nYBeawqcr3n5yZ4AAskz" target="_blank" class="btn-cta-glow fade-up stagger-2">
+          Entrar na Comunidade
         </a>
-        <div class="cta-platforms fade-up stagger-3">Disponível para iOS e Android</div>
+        <div class="cta-platforms fade-up stagger-3">Grupo gratuito no WhatsApp</div>
       </div>
     </div>
   </section>
@@ -644,13 +483,13 @@
         <a href="index.html">Início</a>
         <a href="como-funciona.html">Como Funciona</a>
         <a href="para-quem.html">Para Quem</a>
-        <a href="account-deletion.html">Deletar</a>
 
       </div>
       <div class="footer-copy">&copy; 2026 Orbe. Todos os direitos reservados.</div>
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js" defer></script>
   <script src="js/main.js"></script>
 </body>
 </html>
