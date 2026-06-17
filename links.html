@@ -136,14 +136,6 @@
       opacity: 0; transform: scale(.85);
       animation: pop .9s var(--ease) .25s forwards;
     }
-    .icon-ring-track {
-      position: absolute; inset: -10px;
-      border-radius: 50%;
-      border: 1.5px solid transparent;
-      background: linear-gradient(var(--black),var(--black)) padding-box,
-                  conic-gradient(from 0deg, transparent 0%, var(--cyan) 30%, var(--blue) 60%, transparent 100%) border-box;
-      animation: spin 5s linear infinite;
-    }
     .icon-ring-glow {
       position: absolute; inset: -20px;
       border-radius: 50%;
@@ -417,7 +409,6 @@
     <!-- App icon com anel animado -->
     <div class="icon-ring">
       <div class="icon-ring-glow"></div>
-      <div class="icon-ring-track"></div>
       <img src="assets/img/logo-com-fundo.PNG" alt="Orbe App" class="icon-img" />
     </div>
 
