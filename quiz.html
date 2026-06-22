@@ -43,7 +43,7 @@
       overflow-x: hidden;
     }
 
-    h1, h2, .eyebrow, .btn-primary, .q-text, .result-headline {
+    h1, h2, .eyebrow, .btn-primary, .q-text, .result-number {
       font-family: 'Outfit', system-ui, sans-serif;
     }
 
@@ -99,11 +99,34 @@
     }
     .screen.active {
       display: flex;
-      animation: rise .55s var(--ease) forwards;
+      animation: rise .5s var(--ease) forwards;
+    }
+    .screen.leaving {
+      display: flex;
+      animation: settle .16s var(--ease) forwards;
     }
     @keyframes rise {
       from { opacity: 0; transform: translateY(14px); }
       to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes settle {
+      from { opacity: 1; transform: translateY(0); }
+      to   { opacity: 0; transform: translateY(-10px); }
+    }
+
+    .q-stage {
+      width: 100%;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .q-stage.q-anim-next { animation: slide-from-right .4s var(--ease); }
+    .q-stage.q-anim-back { animation: slide-from-left .4s var(--ease); }
+    @keyframes slide-from-right {
+      from { opacity: 0; transform: translateX(20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slide-from-left {
+      from { opacity: 0; transform: translateX(-20px); }
+      to   { opacity: 1; transform: translateX(0); }
     }
 
     .eyebrow {
@@ -265,20 +288,26 @@
     .calc-text { font-size: 1rem; font-weight: 600; color: var(--ink2); }
 
     /* ── RESULT ────────────────────────────────────── */
-    .result-headline {
-      font-size: clamp(1.5rem, 6vw, 2rem);
-      font-weight: 700; line-height: 1.28;
-      margin-bottom: 1.75rem;
-      max-width: 400px;
-    }
-    .result-headline strong {
+    .result-hero { margin: .15rem 0 0; }
+    .result-number {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-weight: 800; letter-spacing: -.02em; line-height: .92;
+      font-size: clamp(4rem, 22vw, 5.5rem);
       background: var(--grad); -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    .result-caption {
+      font-size: 1.0625rem; font-weight: 600; color: var(--ink);
+      margin-top: .5rem;
+    }
+    .result-sub {
+      font-size: .9375rem; color: var(--ink3);
+      margin-top: .45rem; margin-bottom: 2rem;
+    }
 
     .stat-row {
-      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .6rem;
-      width: 100%; margin-bottom: 1.75rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: .6rem;
+      width: 100%; margin-bottom: 1.5rem;
     }
     .stat-chip {
       background: var(--card); border: 1px solid var(--border);
@@ -288,15 +317,31 @@
     .stat-num { font-size: 1.15rem; font-weight: 800; font-family: 'Outfit', system-ui, sans-serif; color: var(--blue); }
     .stat-label { font-size: .7rem; font-weight: 600; color: var(--ink3); text-transform: uppercase; letter-spacing: .03em; margin-top: .2rem; }
 
-    .result-card {
+    .insight-list { width: 100%; display: flex; flex-direction: column; gap: .65rem; margin-bottom: 1.25rem; }
+    .insight-item {
       background: var(--card); border: 1px solid var(--border);
-      border-radius: 18px; padding: 1.4rem 1.5rem;
+      border-radius: 18px; padding: 1.1rem 1.3rem;
       box-shadow: var(--shadow);
-      margin-bottom: 1.25rem; text-align: left;
+      text-align: left;
     }
-    .result-card p { font-size: .9375rem; line-height: 1.6; color: var(--ink2); }
-    .result-card p + p { margin-top: .65rem; }
-    .result-card strong { color: var(--ink); }
+    .insight-label {
+      display: block; font-size: .6875rem; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase; color: var(--blue);
+      margin-bottom: .5rem;
+    }
+    .insight-item p { font-size: .9375rem; line-height: 1.6; color: var(--ink2); }
+    .insight-item strong { color: var(--ink); }
+
+    #screen-result.active > * {
+      animation: rise .5s var(--ease) backwards;
+    }
+    #screen-result.active > *:nth-child(1) { animation-delay: 0s; }
+    #screen-result.active > *:nth-child(2) { animation-delay: .07s; }
+    #screen-result.active > *:nth-child(3) { animation-delay: .13s; }
+    #screen-result.active > *:nth-child(4) { animation-delay: .19s; }
+    #screen-result.active > *:nth-child(5) { animation-delay: .25s; }
+    #screen-result.active > *:nth-child(6) { animation-delay: .31s; }
+    #screen-result.active > *:nth-child(7) { animation-delay: .37s; }
 
     .cta-box {
       width: 100%;
@@ -359,9 +404,11 @@
 
     <!-- QUESTION (template reutilizado) -->
     <section class="screen" id="screen-question">
-      <div class="q-kicker" id="qKicker"></div>
-      <h2 class="q-text" id="qText"></h2>
-      <div class="q-body" id="qBody"></div>
+      <div class="q-stage" id="qStage">
+        <div class="q-kicker" id="qKicker"></div>
+        <h2 class="q-text" id="qText"></h2>
+        <div class="q-body" id="qBody"></div>
+      </div>
       <div class="q-actions" id="qActions">
         <button class="btn-text" id="btnBack">← Voltar</button>
       </div>
@@ -376,13 +423,24 @@
     <!-- RESULT -->
     <section class="screen" id="screen-result">
       <span class="eyebrow" id="resultTag">Uso moderado</span>
-      <h2 class="result-headline" id="resultHeadline"></h2>
+
+      <div class="result-hero">
+        <div class="result-number" id="resultNumber"></div>
+        <p class="result-caption" id="resultCaption"></p>
+      </div>
+      <p class="result-sub" id="resultSub">rolando o feed, sem perceber.</p>
 
       <div class="stat-row" id="resultStats"></div>
 
-      <div class="result-card">
-        <p id="resultCompare"></p>
-        <p id="resultDiagnosis"></p>
+      <div class="insight-list">
+        <div class="insight-item">
+          <span class="insight-label">O que você perdeu</span>
+          <p id="resultCompare"></p>
+        </div>
+        <div class="insight-item">
+          <span class="insight-label">O que isso diz</span>
+          <p id="resultDiagnosis"></p>
+        </div>
       </div>
 
       <div class="cta-box">
@@ -530,7 +588,7 @@
         hoursPerWeek: hoursPerWeek,
         daysPerYear: daysPerYear,
         monthsPerYear: monthsPerYear,
-        compareText: '<strong>Você poderia ter tido ' + humanizeDuration(hoursPerYear) + ' ' + label + '.</strong> Em vez disso, esse tempo só virou rolagem de feed, e não volta.',
+        compareText: '<strong>' + humanizeDuration(hoursPerYear) + ' ' + label + '.</strong> Em vez disso, esse tempo só virou rolagem de feed, e não volta.',
         diagnosisText: DIAGNOSIS[answers.feeling] || DIAGNOSIS.neutral
       };
     }
@@ -540,6 +598,7 @@
     ───────────────────────────────────────────────── */
     var answers = {};
     var currentIndex = -1; // -1 = hero
+    var navDirection = 'next';
 
     var screens = {
       hero: document.getElementById('screen-hero'),
@@ -552,10 +611,23 @@
     var progressFill = document.getElementById('progressFill');
 
     function showScreen(name) {
+      var next = screens[name];
+      var current = null;
       Object.keys(screens).forEach(function (key) {
-        screens[key].classList.remove('active');
+        if (screens[key].classList.contains('active') && screens[key] !== next) current = screens[key];
       });
-      screens[name].classList.add('active');
+
+      if (!current) {
+        next.classList.add('active');
+        return;
+      }
+
+      current.classList.remove('active');
+      current.classList.add('leaving');
+      setTimeout(function () {
+        current.classList.remove('leaving');
+        next.classList.add('active');
+      }, 160);
     }
 
     function updateProgress() {
@@ -581,6 +653,11 @@
       var q = QUESTIONS[index];
       document.getElementById('qKicker').textContent = 'Pergunta ' + (index + 1) + ' de ' + QUESTIONS.length;
       document.getElementById('qText').textContent = q.text;
+
+      var stage = document.getElementById('qStage');
+      stage.classList.remove('q-anim-next', 'q-anim-back');
+      void stage.offsetWidth; // força reflow pra reiniciar a animação
+      stage.classList.add(navDirection === 'back' ? 'q-anim-back' : 'q-anim-next');
 
       var body = document.getElementById('qBody');
       var actions = document.getElementById('qActions');
@@ -651,6 +728,7 @@
     }
 
     function goNext() {
+      navDirection = 'next';
       if (currentIndex < QUESTIONS.length - 1) {
         currentIndex++;
         updateProgress();
@@ -662,6 +740,7 @@
     }
 
     function goBack() {
+      navDirection = 'back';
       if (currentIndex <= 0) {
         currentIndex = -1;
         updateProgress();
@@ -685,13 +764,13 @@
       var result = calculateResult(answers);
 
       document.getElementById('resultTag').textContent = result.tag;
-      document.getElementById('resultHeadline').innerHTML =
-        'Você está perdendo cerca de <strong>' + result.daysPerYear + ' dias da sua vida por ano</strong>, quase ' + result.monthsPerYear + ' meses, apenas rolando o feed.';
+      document.getElementById('resultNumber').textContent = result.daysPerYear;
+      document.getElementById('resultCaption').innerHTML =
+        'dias da sua vida, por ano <span style="color:var(--ink3);">(quase ' + result.monthsPerYear + ' meses)</span>';
 
       document.getElementById('resultStats').innerHTML =
         '<div class="stat-chip"><div class="stat-num">' + formatHoursWhole(result.hoursPerDay) + '</div><div class="stat-label">Por dia</div></div>' +
-        '<div class="stat-chip"><div class="stat-num">' + formatHoursWhole(result.hoursPerWeek) + '</div><div class="stat-label">Por semana</div></div>' +
-        '<div class="stat-chip"><div class="stat-num">' + result.daysPerYear + ' dias</div><div class="stat-label">Por ano</div></div>';
+        '<div class="stat-chip"><div class="stat-num">' + formatHoursWhole(result.hoursPerWeek) + '</div><div class="stat-label">Por semana</div></div>';
 
       document.getElementById('resultCompare').innerHTML = result.compareText;
       document.getElementById('resultDiagnosis').textContent = result.diagnosisText;
