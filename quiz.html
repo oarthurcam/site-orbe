@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quanto tempo você perde nas redes? — Orbe</title>
+  <title>Quanto tempo você perde nas redes? - Orbe</title>
   <meta name="description" content="Responda um quiz rápido de 1 minuto e descubra quanto tempo das suas semanas some nas redes sociais." />
-  <meta property="og:title" content="Quanto tempo você perde nas redes? — Orbe" />
+  <meta property="og:title" content="Quanto tempo você perde nas redes? - Orbe" />
   <meta property="og:description" content="Quiz rápido de 1 minuto: descubra quanto tempo você perde rolando o feed e o que poderia fazer com ele." />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/png" href="assets/img/logo-com-fundo.PNG" />
@@ -387,7 +387,7 @@
 
       <div class="cta-box">
         <p class="cta-title">Quer recuperar esse tempo?</p>
-        <p class="cta-sub">O Orbe te ajuda a bloquear distrações e construir hábitos digitais mais saudáveis — sem radicalismo.</p>
+        <p class="cta-sub">O Orbe te ajuda a bloquear distrações e construir hábitos digitais mais saudáveis, sem radicalismo.</p>
         <a href="links.html" class="btn-primary" style="width:100%; text-decoration:none;">Conhecer o Orbe →</a>
       </div>
 
@@ -436,7 +436,7 @@
       {
         id: 'frequency',
         type: 'choice',
-        text: 'Quantas vezes por dia seu polegar abre o app no automático — antes de você nem decidir?',
+        text: 'Quantas vezes por dia seu polegar abre o app no automático, antes de você nem decidir?',
         options: [
           { value: 'few', label: 'Poucas vezes' },
           { value: 'some', label: 'Algumas vezes, eu acho' },
@@ -447,7 +447,7 @@
       {
         id: 'retried',
         type: 'choice',
-        text: 'Quantas vezes você já jurou "vou usar menos" — e voltou ao mesmo de sempre?',
+        text: 'Quantas vezes você já jurou "vou usar menos" e voltou ao mesmo de sempre?',
         options: [
           { value: 'no', label: 'Nunca tentei. Nem sei se eu conseguiria' },
           { value: 'once', label: 'Tentei uma vez e voltei em poucos dias' },
@@ -462,7 +462,7 @@
           { value: 'good', label: 'Nada. Não me incomoda' },
           { value: 'neutral', label: 'Um vazio estranho que eu nem sei explicar' },
           { value: 'tired', label: 'Um cansaço mental, como se eu tivesse trabalhado' },
-          { value: 'guilty', label: 'Culpa — eu sabia que devia ter parado antes' }
+          { value: 'guilty', label: 'Culpa. Eu sabia que devia ter parado antes' }
         ]
       },
       {
@@ -495,12 +495,12 @@
       if (days < 45) return days + (days === 1 ? ' dia' : ' dias');
       var months = Math.round(days / 30);
       if (months < 18) return months + (months === 1 ? ' mês' : ' meses');
-      var years = Math.round((days / 365) * 10) / 10;
-      return years.toString().replace('.', ',') + (years === 1 ? ' ano' : ' anos');
+      var years = Math.max(1, Math.round(days / 365));
+      return years + (years === 1 ? ' ano' : ' anos');
     }
 
     var DIAGNOSIS = {
-      good:    'Pode não pesar agora — mas o tempo não devolve sozinho. Cada rolagem "sem querer" continua cobrando o seu preço.',
+      good:    'Pode não pesar agora, mas o tempo não devolve sozinho. Cada rolagem "sem querer" continua cobrando o seu preço.',
       neutral: 'Esse "nem percebo passando" é exatamente o problema: o tempo mais perigoso é o que desaparece sem aviso.',
       tired:   'Esse cansaço não é por acaso. É o seu cérebro pagando a conta de horas de estímulo sem nenhuma pausa.',
       guilty:  'Essa culpa é a sua mente tentando te avisar de algo. Vale escutar antes que o hábito fale mais alto que você.'
@@ -520,6 +520,7 @@
       var hoursPerWeek = hoursPerDay * 7;
       var hoursPerYear = hoursPerDay * 365;
       var daysPerYear = Math.max(1, Math.round(hoursPerYear / 24));
+      var monthsPerYear = Math.max(1, Math.round(daysPerYear / 30));
 
       var label = COMPARISONS[answers.desire] || COMPARISONS.rest;
 
@@ -528,7 +529,8 @@
         hoursPerDay: hoursPerDay,
         hoursPerWeek: hoursPerWeek,
         daysPerYear: daysPerYear,
-        compareText: '<strong>Você poderia ter tido ' + humanizeDuration(hoursPerYear) + ' ' + label + '.</strong> Em vez disso, esse tempo só virou rolagem de feed — e não volta.',
+        monthsPerYear: monthsPerYear,
+        compareText: '<strong>Você poderia ter tido ' + humanizeDuration(hoursPerYear) + ' ' + label + '.</strong> Em vez disso, esse tempo só virou rolagem de feed, e não volta.',
         diagnosisText: DIAGNOSIS[answers.feeling] || DIAGNOSIS.neutral
       };
     }
@@ -569,6 +571,10 @@
     function formatHours(v) {
       var s = v.toFixed(1).replace('.0', '');
       return s.replace('.', ',') + 'h';
+    }
+
+    function formatHoursWhole(v) {
+      return Math.round(v) + 'h';
     }
 
     function renderQuestion(index) {
@@ -680,11 +686,11 @@
 
       document.getElementById('resultTag').textContent = result.tag;
       document.getElementById('resultHeadline').innerHTML =
-        'Você está perdendo <strong>~' + result.daysPerYear + ' dias da sua vida por ano</strong>, rolando o feed.';
+        'Você está perdendo cerca de <strong>' + result.daysPerYear + ' dias da sua vida por ano</strong>, quase ' + result.monthsPerYear + ' meses, apenas rolando o feed.';
 
       document.getElementById('resultStats').innerHTML =
-        '<div class="stat-chip"><div class="stat-num">' + formatHours(result.hoursPerDay) + '</div><div class="stat-label">Por dia</div></div>' +
-        '<div class="stat-chip"><div class="stat-num">' + formatHours(result.hoursPerWeek) + '</div><div class="stat-label">Por semana</div></div>' +
+        '<div class="stat-chip"><div class="stat-num">' + formatHoursWhole(result.hoursPerDay) + '</div><div class="stat-label">Por dia</div></div>' +
+        '<div class="stat-chip"><div class="stat-num">' + formatHoursWhole(result.hoursPerWeek) + '</div><div class="stat-label">Por semana</div></div>' +
         '<div class="stat-chip"><div class="stat-num">' + result.daysPerYear + ' dias</div><div class="stat-label">Por ano</div></div>';
 
       document.getElementById('resultCompare').innerHTML = result.compareText;
