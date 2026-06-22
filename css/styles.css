@@ -352,6 +352,7 @@ ul, ol { list-style: none; }
 .nav-cta {
   display: inline-flex;
   align-items: center;
+  gap: 0.5rem;
   padding: 0.625rem 1.25rem;
   border-radius: 100px;
   background: var(--gradient-primary);
@@ -359,10 +360,17 @@ ul, ol { list-style: none; }
   font-weight: 600;
   color: #fff;
   flex-shrink: 0;
+  white-space: nowrap;
   transition: opacity var(--transition-hover);
 }
 
 .nav-cta:hover { opacity: 0.88; }
+
+.nav-cta-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
 
 .nav-hamburger {
   display: none;
@@ -3193,7 +3201,8 @@ ul, ol { list-style: none; }
 
 @media (max-width: 460px) {
   .nav .container { gap: 0.5rem; }
-  .nav-cta { display: none; }
+  .nav-cta { padding: 0.45rem 0.7rem; font-size: 0.7rem; gap: 0.35rem; }
+  .nav-cta-icon { width: 14px; height: 14px; }
   .hero-title { font-size: clamp(2rem, 9vw, 3rem) !important; }
   .hero-float-card { font-size: 0.7rem; padding: 0.55rem 0.7rem; }
   .float-card-icon { width: 28px; height: 28px; }
