@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quanto tempo você perde nas redes? — Orbe</title>
+  <meta name="description" content="Responda um quiz rápido de 1 minuto e descubra quanto tempo das suas semanas some nas redes sociais." />
+  <meta property="og:title" content="Quanto tempo você perde nas redes? — Orbe" />
+  <meta property="og:description" content="Quiz rápido de 1 minuto: descubra quanto tempo você perde rolando o feed e o que poderia fazer com ele." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="assets/img/logo-com-fundo.PNG" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #1E6FFF;
+      --cyan:    #00C2E8;
+      --grad:    linear-gradient(135deg, #1E6FFF, #00C2E8);
+      --cream:   #FBF8F3;
+      --cream2:  #F3EEE5;
+      --ink:     #2A2826;
+      --ink2:    rgba(42,40,38,.64);
+      --ink3:    rgba(42,40,38,.40);
+      --card:    #FFFFFF;
+      --border:  rgba(42,40,38,.09);
+      --border2: rgba(42,40,38,.14);
+      --shadow:  0 14px 38px rgba(42,40,38,.07);
+      --shadow-lg: 0 18px 48px rgba(30,111,255,.16);
+      --ease:    cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Manrope', system-ui, sans-serif;
+      min-height: 100dvh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    h1, h2, .eyebrow, .btn-primary, .q-text, .result-headline {
+      font-family: 'Outfit', system-ui, sans-serif;
+    }
+
+    /* ── BACKGROUND ────────────────────────────────── */
+    .bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+    .bg-blob1 {
+      position: absolute; top: -10%; right: -12%;
+      width: 480px; height: 480px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(30,111,255,.12) 0%, rgba(30,111,255,.04) 50%, transparent 72%);
+      filter: blur(40px);
+      animation: drift 14s ease-in-out infinite;
+    }
+    .bg-blob2 {
+      position: absolute; bottom: -14%; left: -10%;
+      width: 420px; height: 420px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,194,232,.10) 0%, rgba(0,194,232,.03) 50%, transparent 72%);
+      filter: blur(40px);
+      animation: drift 17s ease-in-out 2s infinite reverse;
+    }
+    @keyframes drift {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(-3%, 3%) scale(1.06); }
+    }
+
+    /* ── PROGRESS ──────────────────────────────────── */
+    .progress-track {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 5;
+      height: 4px; background: var(--cream2);
+      opacity: 0; transition: opacity .3s var(--ease);
+    }
+    .progress-track.visible { opacity: 1; }
+    .progress-fill {
+      height: 100%; width: 0%;
+      background: var(--grad);
+      transition: width .5s var(--ease);
+    }
+
+    /* ── LAYOUT ────────────────────────────────────── */
+    .page {
+      position: relative; z-index: 1;
+      min-height: 100dvh;
+      width: 100%;
+      display: flex; align-items: center; justify-content: center;
+      padding: 5rem 1.5rem 3rem;
+    }
+
+    .screen {
+      width: 100%; max-width: 460px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .screen.active {
+      display: flex;
+      animation: rise .55s var(--ease) forwards;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .75rem; font-weight: 700; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--blue);
+      background: rgba(30,111,255,.08);
+      border: 1px solid rgba(30,111,255,.16);
+      padding: .4rem .85rem; border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── HERO ──────────────────────────────────────── */
+    .hero-title {
+      font-size: clamp(1.7rem, 6vw, 2.3rem);
+      font-weight: 700; line-height: 1.18; letter-spacing: -.01em;
+      color: var(--ink);
+      margin-bottom: .9rem;
+    }
+    .hero-lead {
+      font-size: 1.0625rem; line-height: 1.6; color: var(--ink2);
+      max-width: 380px; margin-bottom: 1.75rem;
+    }
+    .meta-row {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .875rem; font-weight: 600; color: var(--ink3);
+      margin-bottom: 2.25rem;
+    }
+    .meta-row svg { width: 16px; height: 16px; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 1rem; font-weight: 700;
+      color: #fff; background: var(--grad);
+      border: none; border-radius: 100px;
+      padding: 1rem 2.1rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg);
+      transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 22px 54px rgba(30,111,255,.22); }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-text {
+      font-family: 'Manrope', system-ui, sans-serif;
+      font-size: .875rem; font-weight: 600;
+      color: var(--ink3); background: none; border: none;
+      cursor: pointer; padding: .5rem;
+      transition: color .2s;
+    }
+    .btn-text:hover { color: var(--ink2); }
+
+    /* ── QUESTION ──────────────────────────────────── */
+    .q-kicker {
+      font-size: .8125rem; font-weight: 700; color: var(--ink3);
+      letter-spacing: .04em; margin-bottom: .9rem;
+    }
+    .q-text {
+      font-size: clamp(1.3rem, 5vw, 1.6rem);
+      font-weight: 600; line-height: 1.3;
+      margin-bottom: 2rem;
+      max-width: 380px;
+    }
+    .q-body { width: 100%; margin-bottom: 1.5rem; }
+
+    /* Choice options */
+    .choice-list { display: flex; flex-direction: column; gap: .7rem; }
+    .choice-btn {
+      display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+      width: 100%; text-align: left;
+      font-family: 'Manrope', system-ui, sans-serif;
+      font-size: 1rem; font-weight: 600; color: var(--ink);
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: border-color .22s var(--ease), background .22s var(--ease), transform .22s var(--ease);
+    }
+    .choice-btn:hover { border-color: var(--border2); transform: translateY(-1px); }
+    .choice-btn.selected {
+      border-color: var(--blue);
+      background: rgba(30,111,255,.06);
+    }
+    .choice-check {
+      flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+      border: 1.5px solid var(--border2);
+      display: flex; align-items: center; justify-content: center;
+      transition: all .22s var(--ease);
+    }
+    .choice-btn.selected .choice-check {
+      background: var(--grad); border-color: transparent;
+    }
+    .choice-check svg {
+      width: 12px; height: 12px; opacity: 0; transform: scale(.6);
+      transition: all .18s var(--ease);
+    }
+    .choice-btn.selected .choice-check svg { opacity: 1; transform: scale(1); }
+
+    /* Slider */
+    .slider-wrap {
+      background: var(--card); border: 1.5px solid var(--border);
+      border-radius: 20px; padding: 2rem 1.5rem 1.6rem;
+      box-shadow: var(--shadow);
+    }
+    .slider-value {
+      font-size: 2.2rem; font-weight: 800; font-family: 'Outfit', system-ui, sans-serif;
+      background: var(--grad); -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: .3rem;
+    }
+    .slider-tag {
+      font-size: .8125rem; font-weight: 700; color: var(--ink3);
+      text-transform: uppercase; letter-spacing: .04em;
+      margin-bottom: 1.5rem;
+    }
+    .slider-input {
+      width: 100%; height: 6px; border-radius: 100px;
+      background: var(--cream2);
+      outline: none; -webkit-appearance: none; appearance: none;
+      cursor: pointer;
+    }
+    .slider-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--grad);
+      box-shadow: 0 4px 12px rgba(30,111,255,.35), 0 0 0 4px #fff;
+      cursor: pointer;
+    }
+    .slider-input::-moz-range-thumb {
+      width: 26px; height: 26px; border-radius: 50%; border: none;
+      background: var(--grad);
+      box-shadow: 0 4px 12px rgba(30,111,255,.35), 0 0 0 4px #fff;
+      cursor: pointer;
+    }
+    .slider-scale {
+      display: flex; justify-content: space-between;
+      font-size: .75rem; color: var(--ink3); margin-top: .6rem;
+    }
+
+    .q-actions {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; gap: 1rem;
+    }
+    .q-actions .btn-primary { flex: 1; }
+    .q-actions.choice-mode { justify-content: flex-start; }
+
+    /* ── CALCULATING ───────────────────────────────── */
+    .calc-spinner {
+      width: 52px; height: 52px; border-radius: 50%;
+      border: 4px solid var(--cream2);
+      border-top-color: var(--blue);
+      animation: spin .8s linear infinite;
+      margin-bottom: 1.5rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .calc-text { font-size: 1rem; font-weight: 600; color: var(--ink2); }
+
+    /* ── RESULT ────────────────────────────────────── */
+    .result-headline {
+      font-size: clamp(1.5rem, 6vw, 2rem);
+      font-weight: 700; line-height: 1.28;
+      margin-bottom: 1.75rem;
+      max-width: 400px;
+    }
+    .result-headline strong {
+      background: var(--grad); -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-row {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .6rem;
+      width: 100%; margin-bottom: 1.75rem;
+    }
+    .stat-chip {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: .9rem .5rem;
+      box-shadow: var(--shadow);
+    }
+    .stat-num { font-size: 1.15rem; font-weight: 800; font-family: 'Outfit', system-ui, sans-serif; color: var(--blue); }
+    .stat-label { font-size: .7rem; font-weight: 600; color: var(--ink3); text-transform: uppercase; letter-spacing: .03em; margin-top: .2rem; }
+
+    .result-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 18px; padding: 1.4rem 1.5rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.25rem; text-align: left;
+    }
+    .result-card p { font-size: .9375rem; line-height: 1.6; color: var(--ink2); }
+    .result-card p + p { margin-top: .65rem; }
+    .result-card strong { color: var(--ink); }
+
+    .cta-box {
+      width: 100%;
+      background: linear-gradient(160deg, rgba(30,111,255,.06), rgba(0,194,232,.05));
+      border: 1px solid rgba(30,111,255,.14);
+      border-radius: 22px;
+      padding: 1.75rem 1.5rem;
+      margin: .5rem 0 1.25rem;
+    }
+    .cta-title { font-family: 'Outfit', system-ui, sans-serif; font-size: 1.15rem; font-weight: 700; margin-bottom: .5rem; }
+    .cta-sub { font-size: .9rem; color: var(--ink2); line-height: 1.55; margin-bottom: 1.25rem; }
+
+    /* ── FOOTER ────────────────────────────────────── */
+    .footer {
+      position: relative; z-index: 1;
+      font-size: .75rem; color: var(--ink3); text-align: center; line-height: 1.6;
+      padding: 0 1.5rem 2rem;
+    }
+    .footer a { color: var(--ink3); text-decoration: none; transition: color .2s; }
+    .footer a:hover { color: var(--ink2); }
+
+    @media (max-width: 420px) {
+      .page { padding: 4rem 1.25rem 2rem; }
+      .stat-row { gap: .45rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg">
+    <div class="bg-blob1"></div>
+    <div class="bg-blob2"></div>
+  </div>
+
+  <div class="progress-track" id="progressTrack">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+
+  <main class="page">
+
+    <!-- HERO -->
+    <section class="screen active" id="screen-hero">
+      <span class="eyebrow">Quiz rápido · 1 minuto</span>
+      <h1 class="hero-title">Quanto tempo você realmente perde nas redes sociais?</h1>
+      <p class="hero-lead">Responda 6 perguntas rápidas e descubra, sem julgamento, quanto da sua semana some na rolagem infinita.</p>
+      <div class="meta-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Leva menos de 1 minuto
+      </div>
+      <button class="btn-primary" id="btnStart">Começar →</button>
+    </section>
+
+    <!-- QUESTION (template reutilizado) -->
+    <section class="screen" id="screen-question">
+      <div class="q-kicker" id="qKicker"></div>
+      <h2 class="q-text" id="qText"></h2>
+      <div class="q-body" id="qBody"></div>
+      <div class="q-actions" id="qActions">
+        <button class="btn-text" id="btnBack">← Voltar</button>
+      </div>
+    </section>
+
+    <!-- CALCULATING -->
+    <section class="screen" id="screen-calc">
+      <div class="calc-spinner"></div>
+      <p class="calc-text">Calculando o seu perfil...</p>
+    </section>
+
+    <!-- RESULT -->
+    <section class="screen" id="screen-result">
+      <span class="eyebrow" id="resultTag">Uso moderado</span>
+      <h2 class="result-headline" id="resultHeadline"></h2>
+
+      <div class="stat-row" id="resultStats"></div>
+
+      <div class="result-card">
+        <p id="resultCompare"></p>
+        <p id="resultDiagnosis"></p>
+      </div>
+
+      <div class="cta-box">
+        <p class="cta-title">Quer recuperar esse tempo?</p>
+        <p class="cta-sub">O Orbe te ajuda a bloquear distrações e construir hábitos digitais mais saudáveis — sem radicalismo.</p>
+        <a href="links.html" class="btn-primary" style="width:100%; text-decoration:none;">Conhecer o Orbe →</a>
+      </div>
+
+      <button class="btn-text" id="btnRestart">Refazer o quiz</button>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    &copy; 2026 Orbe · <a href="privacy-policy.html">Privacidade</a> · <a href="index.html">Site Oficial</a>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ─────────────────────────────────────────────────
+       CONFIG: perguntas e lógica de pontuação.
+       Edite aqui para ajustar copy e números.
+    ───────────────────────────────────────────────── */
+    var QUESTIONS = [
+      {
+        id: 'hours',
+        type: 'slider',
+        text: 'Quantas horas por dia você acha que passa nas redes sociais?',
+        min: 0, max: 10, step: 0.5, default: 3,
+        tag: function (v) {
+          if (v < 1.5) return 'Pouco';
+          if (v < 3)   return 'Moderado';
+          if (v < 5)   return 'Bastante';
+          return 'Muito';
+        }
+      },
+      {
+        id: 'app',
+        type: 'choice',
+        text: 'Qual rede consome mais o seu tempo?',
+        options: [
+          { value: 'instagram', label: 'Instagram' },
+          { value: 'tiktok', label: 'TikTok' },
+          { value: 'youtube', label: 'YouTube' },
+          { value: 'whatsapp', label: 'WhatsApp' },
+          { value: 'other', label: 'Outra' }
+        ]
+      },
+      {
+        id: 'frequency',
+        type: 'choice',
+        text: 'Quantas vezes por dia você pega o celular sem motivo claro?',
+        options: [
+          { value: 'few', label: 'Poucas vezes' },
+          { value: 'some', label: 'Algumas vezes' },
+          { value: 'many', label: 'Muitas vezes' },
+          { value: 'lost_count', label: 'Perdi a conta' }
+        ]
+      },
+      {
+        id: 'retried',
+        type: 'choice',
+        text: 'Você já tentou usar menos as redes e não conseguiu manter?',
+        options: [
+          { value: 'no', label: 'Não, nunca tentei' },
+          { value: 'once', label: 'Sim, uma vez' },
+          { value: 'many_times', label: 'Sim, várias vezes' }
+        ]
+      },
+      {
+        id: 'feeling',
+        type: 'choice',
+        text: 'Como você se sente depois de uma rolagem longa?',
+        options: [
+          { value: 'good', label: 'Bem, sem culpa' },
+          { value: 'neutral', label: 'Neutro(a)' },
+          { value: 'tired', label: 'Cansado(a)' },
+          { value: 'guilty', label: 'Um pouco culpado(a)' }
+        ]
+      },
+      {
+        id: 'desire',
+        type: 'choice',
+        text: 'Se recuperasse esse tempo de volta, o que mais gostaria de fazer?',
+        options: [
+          { value: 'exercise', label: 'Me exercitar' },
+          { value: 'hobby', label: 'Hobbies e criatividade' },
+          { value: 'rest', label: 'Descansar de verdade' },
+          { value: 'study', label: 'Estudar algo novo' },
+          { value: 'people', label: 'Tempo com quem eu amo' }
+        ]
+      }
+    ];
+
+    var FREQUENCY_ADJUST = { few: 0, some: 0.1, many: 0.25, lost_count: 0.45 };
+    var RETRIED_ADJUST = { no: 0, once: 0.1, many_times: 0.3 };
+
+    var COMPARISONS = {
+      exercise: 'treinando na academia, todos os dias',
+      hobby:    'dedicado a hobbies e criatividade, todos os dias',
+      rest:     'descansando de verdade, todas as noites',
+      study:    'estudando algo novo, todos os dias',
+      people:   'ao lado de quem você ama, todos os dias'
+    };
+
+    function humanizeDuration(days) {
+      days = Math.max(1, Math.round(days));
+      if (days < 45) return days + (days === 1 ? ' dia' : ' dias');
+      var months = Math.round(days / 30);
+      if (months < 18) return months + (months === 1 ? ' mês' : ' meses');
+      var years = Math.round((days / 365) * 10) / 10;
+      return years.toString().replace('.', ',') + (years === 1 ? ' ano' : ' anos');
+    }
+
+    var DIAGNOSIS = {
+      good:    'Pelo visto isso não pesa na sua cabeça — mas o tempo ainda soma. Que tal aproveitá-lo de um jeito que também te faça bem?',
+      neutral: 'Você nem percebe esse tempo passando — e é exatamente aí que ele mais escapa.',
+      tired:   'Faz sentido se sentir exausto(a): rolar sem pausa cobra um preço, mesmo parecendo "nada".',
+      guilty:  'Sem julgamento aqui, só clareza: saber o tamanho do hábito já é o primeiro passo pra mudar.'
+    };
+
+    function usageTag(hoursPerDay) {
+      if (hoursPerDay < 1.5) return 'Uso leve';
+      if (hoursPerDay < 3)   return 'Uso moderado';
+      if (hoursPerDay < 5)   return 'Uso alto';
+      return 'Uso muito alto';
+    }
+
+    function calculateResult(answers) {
+      var base = typeof answers.hours === 'number' ? answers.hours : 3;
+      var adjust = (FREQUENCY_ADJUST[answers.frequency] || 0) + (RETRIED_ADJUST[answers.retried] || 0);
+      var hoursPerDay = Math.min(base + adjust, 12);
+      var hoursPerWeek = hoursPerDay * 7;
+      var hoursPerYear = hoursPerDay * 365;
+      var daysPerYear = Math.max(1, Math.round(hoursPerYear / 24));
+
+      var label = COMPARISONS[answers.desire] || COMPARISONS.rest;
+
+      return {
+        tag: usageTag(hoursPerDay),
+        hoursPerDay: hoursPerDay,
+        hoursPerWeek: hoursPerWeek,
+        daysPerYear: daysPerYear,
+        compareText: 'Esse tempo equivale a ' + humanizeDuration(hoursPerYear) + ' ' + label + '.',
+        diagnosisText: DIAGNOSIS[answers.feeling] || DIAGNOSIS.neutral
+      };
+    }
+
+    /* ─────────────────────────────────────────────────
+       Estado e navegação
+    ───────────────────────────────────────────────── */
+    var answers = {};
+    var currentIndex = -1; // -1 = hero
+
+    var screens = {
+      hero: document.getElementById('screen-hero'),
+      question: document.getElementById('screen-question'),
+      calc: document.getElementById('screen-calc'),
+      result: document.getElementById('screen-result')
+    };
+
+    var progressTrack = document.getElementById('progressTrack');
+    var progressFill = document.getElementById('progressFill');
+
+    function showScreen(name) {
+      Object.keys(screens).forEach(function (key) {
+        screens[key].classList.remove('active');
+      });
+      screens[name].classList.add('active');
+    }
+
+    function updateProgress() {
+      if (currentIndex < 0) {
+        progressTrack.classList.remove('visible');
+        return;
+      }
+      progressTrack.classList.add('visible');
+      var pct = (currentIndex / QUESTIONS.length) * 100;
+      progressFill.style.width = pct + '%';
+    }
+
+    function formatHours(v) {
+      var s = v.toFixed(1).replace('.0', '');
+      return s.replace('.', ',') + 'h';
+    }
+
+    function renderQuestion(index) {
+      var q = QUESTIONS[index];
+      document.getElementById('qKicker').textContent = 'Pergunta ' + (index + 1) + ' de ' + QUESTIONS.length;
+      document.getElementById('qText').textContent = q.text;
+
+      var body = document.getElementById('qBody');
+      var actions = document.getElementById('qActions');
+      body.innerHTML = '';
+      actions.innerHTML = '<button class="btn-text" id="btnBack">← Voltar</button>';
+      actions.classList.toggle('choice-mode', q.type === 'choice');
+
+      if (q.type === 'slider') {
+        var current = typeof answers[q.id] === 'number' ? answers[q.id] : q.default;
+
+        var wrap = document.createElement('div');
+        wrap.className = 'slider-wrap';
+        wrap.innerHTML =
+          '<div class="slider-value" id="sliderValue"></div>' +
+          '<div class="slider-tag" id="sliderTag"></div>' +
+          '<input type="range" class="slider-input" id="sliderInput" min="' + q.min + '" max="' + q.max + '" step="' + q.step + '" value="' + current + '" />' +
+          '<div class="slider-scale"><span>' + q.min + 'h</span><span>' + q.max + 'h+</span></div>';
+        body.appendChild(wrap);
+
+        var valueEl = document.getElementById('sliderValue');
+        var tagEl = document.getElementById('sliderTag');
+        var input = document.getElementById('sliderInput');
+
+        function paint(v) {
+          valueEl.textContent = formatHours(v) + ' por dia';
+          tagEl.textContent = q.tag(v);
+        }
+        paint(current);
+        answers[q.id] = current;
+
+        input.addEventListener('input', function () {
+          var v = parseFloat(input.value);
+          answers[q.id] = v;
+          paint(v);
+        });
+
+        var nextBtn = document.createElement('button');
+        nextBtn.className = 'btn-primary';
+        nextBtn.textContent = 'Continuar →';
+        nextBtn.addEventListener('click', goNext);
+        actions.appendChild(nextBtn);
+
+      } else {
+        var list = document.createElement('div');
+        list.className = 'choice-list';
+
+        q.options.forEach(function (opt) {
+          var btn = document.createElement('button');
+          btn.className = 'choice-btn';
+          btn.type = 'button';
+          if (answers[q.id] === opt.value) btn.classList.add('selected');
+          btn.innerHTML =
+            '<span>' + opt.label + '</span>' +
+            '<span class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>';
+          btn.addEventListener('click', function () {
+            answers[q.id] = opt.value;
+            Array.prototype.forEach.call(list.children, function (c) { c.classList.remove('selected'); });
+            btn.classList.add('selected');
+            setTimeout(goNext, 220);
+          });
+          list.appendChild(btn);
+        });
+
+        body.appendChild(list);
+      }
+
+      document.getElementById('btnBack').addEventListener('click', goBack);
+    }
+
+    function goNext() {
+      if (currentIndex < QUESTIONS.length - 1) {
+        currentIndex++;
+        updateProgress();
+        renderQuestion(currentIndex);
+        showScreen('question');
+      } else {
+        finishQuiz();
+      }
+    }
+
+    function goBack() {
+      if (currentIndex <= 0) {
+        currentIndex = -1;
+        updateProgress();
+        showScreen('hero');
+      } else {
+        currentIndex--;
+        updateProgress();
+        renderQuestion(currentIndex);
+        showScreen('question');
+      }
+    }
+
+    function finishQuiz() {
+      currentIndex = QUESTIONS.length;
+      updateProgress();
+      showScreen('calc');
+      setTimeout(renderResult, 1300);
+    }
+
+    function renderResult() {
+      var result = calculateResult(answers);
+
+      document.getElementById('resultTag').textContent = result.tag;
+      document.getElementById('resultHeadline').innerHTML =
+        'Você perde <strong>~' + result.daysPerYear + ' dias por ano</strong> rolando o feed.';
+
+      document.getElementById('resultStats').innerHTML =
+        '<div class="stat-chip"><div class="stat-num">' + formatHours(result.hoursPerDay) + '</div><div class="stat-label">Por dia</div></div>' +
+        '<div class="stat-chip"><div class="stat-num">' + formatHours(result.hoursPerWeek) + '</div><div class="stat-label">Por semana</div></div>' +
+        '<div class="stat-chip"><div class="stat-num">' + result.daysPerYear + ' dias</div><div class="stat-label">Por ano</div></div>';
+
+      document.getElementById('resultCompare').innerHTML = '<strong>' + result.compareText + '</strong>';
+      document.getElementById('resultDiagnosis').textContent = result.diagnosisText;
+
+      progressTrack.classList.remove('visible');
+      showScreen('result');
+    }
+
+    function restartQuiz() {
+      answers = {};
+      currentIndex = -1;
+      updateProgress();
+      showScreen('hero');
+    }
+
+    document.getElementById('btnStart').addEventListener('click', goNext);
+    document.getElementById('btnRestart').addEventListener('click', restartQuiz);
+
+  })();
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
+</body>
+</html>
