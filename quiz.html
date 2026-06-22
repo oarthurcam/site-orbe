@@ -19,16 +19,16 @@
       --blue:    #1E6FFF;
       --cyan:    #00C2E8;
       --grad:    linear-gradient(135deg, #1E6FFF, #00C2E8);
-      --cream:   #FBF8F3;
-      --cream2:  #F3EEE5;
-      --ink:     #2A2826;
-      --ink2:    rgba(42,40,38,.64);
-      --ink3:    rgba(42,40,38,.40);
-      --card:    #FFFFFF;
-      --border:  rgba(42,40,38,.09);
-      --border2: rgba(42,40,38,.14);
-      --shadow:  0 14px 38px rgba(42,40,38,.07);
-      --shadow-lg: 0 18px 48px rgba(30,111,255,.16);
+      --cream:   #0A0A0D;
+      --cream2:  rgba(255,255,255,.08);
+      --ink:     #F5F5F7;
+      --ink2:    rgba(245,245,247,.66);
+      --ink3:    rgba(245,245,247,.42);
+      --card:    #15151B;
+      --border:  rgba(255,255,255,.08);
+      --border2: rgba(255,255,255,.16);
+      --shadow:  0 14px 38px rgba(0,0,0,.5);
+      --shadow-lg: 0 18px 48px rgba(30,111,255,.35);
       --ease:    cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -52,15 +52,15 @@
     .bg-blob1 {
       position: absolute; top: -10%; right: -12%;
       width: 480px; height: 480px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(30,111,255,.12) 0%, rgba(30,111,255,.04) 50%, transparent 72%);
-      filter: blur(40px);
+      background: radial-gradient(circle, rgba(30,111,255,.30) 0%, rgba(30,111,255,.08) 50%, transparent 72%);
+      filter: blur(50px);
       animation: drift 14s ease-in-out infinite;
     }
     .bg-blob2 {
       position: absolute; bottom: -14%; left: -10%;
       width: 420px; height: 420px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,194,232,.10) 0%, rgba(0,194,232,.03) 50%, transparent 72%);
-      filter: blur(40px);
+      background: radial-gradient(circle, rgba(0,194,232,.24) 0%, rgba(0,194,232,.06) 50%, transparent 72%);
+      filter: blur(50px);
       animation: drift 17s ease-in-out 2s infinite reverse;
     }
     @keyframes drift {
@@ -232,13 +232,13 @@
       -webkit-appearance: none;
       width: 26px; height: 26px; border-radius: 50%;
       background: var(--grad);
-      box-shadow: 0 4px 12px rgba(30,111,255,.35), 0 0 0 4px #fff;
+      box-shadow: 0 4px 12px rgba(30,111,255,.45), 0 0 0 4px var(--card);
       cursor: pointer;
     }
     .slider-input::-moz-range-thumb {
       width: 26px; height: 26px; border-radius: 50%; border: none;
       background: var(--grad);
-      box-shadow: 0 4px 12px rgba(30,111,255,.35), 0 0 0 4px #fff;
+      box-shadow: 0 4px 12px rgba(30,111,255,.45), 0 0 0 4px var(--card);
       cursor: pointer;
     }
     .slider-scale {
@@ -436,45 +436,45 @@
       {
         id: 'frequency',
         type: 'choice',
-        text: 'Quantas vezes por dia você pega o celular sem motivo claro?',
+        text: 'Quantas vezes por dia seu polegar abre o app no automático — antes de você nem decidir?',
         options: [
           { value: 'few', label: 'Poucas vezes' },
-          { value: 'some', label: 'Algumas vezes' },
-          { value: 'many', label: 'Muitas vezes' },
-          { value: 'lost_count', label: 'Perdi a conta' }
+          { value: 'some', label: 'Algumas vezes, eu acho' },
+          { value: 'many', label: 'Muitas vezes, sem nem perceber' },
+          { value: 'lost_count', label: 'Perdi a conta há muito tempo' }
         ]
       },
       {
         id: 'retried',
         type: 'choice',
-        text: 'Você já tentou usar menos as redes e não conseguiu manter?',
+        text: 'Quantas vezes você já jurou "vou usar menos" — e voltou ao mesmo de sempre?',
         options: [
-          { value: 'no', label: 'Não, nunca tentei' },
-          { value: 'once', label: 'Sim, uma vez' },
-          { value: 'many_times', label: 'Sim, várias vezes' }
+          { value: 'no', label: 'Nunca tentei. Nem sei se eu conseguiria' },
+          { value: 'once', label: 'Tentei uma vez e voltei em poucos dias' },
+          { value: 'many_times', label: 'Tentei várias vezes e sempre recaí' }
         ]
       },
       {
         id: 'feeling',
         type: 'choice',
-        text: 'Como você se sente depois de uma rolagem longa?',
+        text: 'Depois de horas rolando o feed sem perceber, o que sobra é...',
         options: [
-          { value: 'good', label: 'Bem, sem culpa' },
-          { value: 'neutral', label: 'Neutro(a)' },
-          { value: 'tired', label: 'Cansado(a)' },
-          { value: 'guilty', label: 'Um pouco culpado(a)' }
+          { value: 'good', label: 'Nada. Não me incomoda' },
+          { value: 'neutral', label: 'Um vazio estranho que eu nem sei explicar' },
+          { value: 'tired', label: 'Um cansaço mental, como se eu tivesse trabalhado' },
+          { value: 'guilty', label: 'Culpa — eu sabia que devia ter parado antes' }
         ]
       },
       {
         id: 'desire',
         type: 'choice',
-        text: 'Se recuperasse esse tempo de volta, o que mais gostaria de fazer?',
+        text: 'Se esse tempo voltasse pra suas mãos agora, o que você faria de verdade?',
         options: [
-          { value: 'exercise', label: 'Me exercitar' },
-          { value: 'hobby', label: 'Hobbies e criatividade' },
-          { value: 'rest', label: 'Descansar de verdade' },
-          { value: 'study', label: 'Estudar algo novo' },
-          { value: 'people', label: 'Tempo com quem eu amo' }
+          { value: 'exercise', label: 'Cuidaria do meu corpo' },
+          { value: 'hobby', label: 'Criaria algo que é só meu' },
+          { value: 'rest', label: 'Descansaria sem essa culpa no fundo' },
+          { value: 'study', label: 'Aprenderia algo que muda meu futuro' },
+          { value: 'people', label: 'Estaria de verdade com quem eu amo' }
         ]
       }
     ];
@@ -500,10 +500,10 @@
     }
 
     var DIAGNOSIS = {
-      good:    'Pelo visto isso não pesa na sua cabeça — mas o tempo ainda soma. Que tal aproveitá-lo de um jeito que também te faça bem?',
-      neutral: 'Você nem percebe esse tempo passando — e é exatamente aí que ele mais escapa.',
-      tired:   'Faz sentido se sentir exausto(a): rolar sem pausa cobra um preço, mesmo parecendo "nada".',
-      guilty:  'Sem julgamento aqui, só clareza: saber o tamanho do hábito já é o primeiro passo pra mudar.'
+      good:    'Pode não pesar agora — mas o tempo não devolve sozinho. Cada rolagem "sem querer" continua cobrando o seu preço.',
+      neutral: 'Esse "nem percebo passando" é exatamente o problema: o tempo mais perigoso é o que desaparece sem aviso.',
+      tired:   'Esse cansaço não é por acaso. É o seu cérebro pagando a conta de horas de estímulo sem nenhuma pausa.',
+      guilty:  'Essa culpa é a sua mente tentando te avisar de algo. Vale escutar antes que o hábito fale mais alto que você.'
     };
 
     function usageTag(hoursPerDay) {
@@ -528,7 +528,7 @@
         hoursPerDay: hoursPerDay,
         hoursPerWeek: hoursPerWeek,
         daysPerYear: daysPerYear,
-        compareText: 'Esse tempo equivale a ' + humanizeDuration(hoursPerYear) + ' ' + label + '.',
+        compareText: '<strong>Você poderia ter tido ' + humanizeDuration(hoursPerYear) + ' ' + label + '.</strong> Em vez disso, esse tempo só virou rolagem de feed — e não volta.',
         diagnosisText: DIAGNOSIS[answers.feeling] || DIAGNOSIS.neutral
       };
     }
@@ -680,14 +680,14 @@
 
       document.getElementById('resultTag').textContent = result.tag;
       document.getElementById('resultHeadline').innerHTML =
-        'Você perde <strong>~' + result.daysPerYear + ' dias por ano</strong> rolando o feed.';
+        'Você está perdendo <strong>~' + result.daysPerYear + ' dias da sua vida por ano</strong>, rolando o feed.';
 
       document.getElementById('resultStats').innerHTML =
         '<div class="stat-chip"><div class="stat-num">' + formatHours(result.hoursPerDay) + '</div><div class="stat-label">Por dia</div></div>' +
         '<div class="stat-chip"><div class="stat-num">' + formatHours(result.hoursPerWeek) + '</div><div class="stat-label">Por semana</div></div>' +
         '<div class="stat-chip"><div class="stat-num">' + result.daysPerYear + ' dias</div><div class="stat-label">Por ano</div></div>';
 
-      document.getElementById('resultCompare').innerHTML = '<strong>' + result.compareText + '</strong>';
+      document.getElementById('resultCompare').innerHTML = result.compareText;
       document.getElementById('resultDiagnosis').textContent = result.diagnosisText;
 
       progressTrack.classList.remove('visible');
